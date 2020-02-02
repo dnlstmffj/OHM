@@ -1,0 +1,575 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Hello20thon</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	opacity: 0.5;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
+.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="46ccd230-04d3-42f1-9711-ecefe0d4f985" class="page sans"><header><img class="page-cover-image" src="Hello20thon/1372x360.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">👨‍💻</span></div><h1 class="page-title">Hello20thon</h1></header><div class="page-body"><h2 id="8a74c3d1-d930-489b-91ab-e1b53ebea9a2" class="block-color-gray_background">💻  세미콜론 소개</h2><hr id="f63e0e69-f262-4987-8d05-6ad67c7fcdad"/><div id="e1e0fc45-aced-4992-adc0-877e128ee2d9" class="column-list"><div id="496c66c1-d6e0-4726-b4bc-03b3ad228c56" style="width:31.25%" class="column"><figure id="1938d6f8-0b70-4810-b5a1-09ff8dec200c" class="image"><a href="Hello20thon/Untitled.png"><img style="width:192px" src="Hello20thon/Untitled.png"/></a></figure></div><div id="f245b1f0-c04d-4bb9-8b77-d0a381b241f8" style="width:68.75%" class="column"><p id="c4e82777-f8fc-41eb-a9f7-9338228bf84e" class="">세미콜론(SemiColon)은 학생 개발자 간의 커뮤니케이션을 지향하는 커뮤니티로, 소통과 정보 공유, 나아가 온라인 해커톤 등을 목적으로 하는 커뮤니티입니다.</p><p id="a75dcaca-61e3-49b1-9818-9f56b4cf514f" class="">세미콜론은 중학생부터 고등학생까지 참여할 수 있으며 커뮤니티 내에서 자유롭게 코딩에 관한 정보와 의견 등을 나누실 수 있습니다.</p></div></div><h2 id="1b23de77-d215-40f1-8913-7ecb11cae16f" class="block-color-gray_background">⭐️ 데벨업 소개</h2><hr id="9f819d5a-2db0-4fb2-b13d-afd7b3345911"/><div id="c9839923-af32-480c-b775-3ab4317a584c" class="column-list"><div id="72cfa400-540a-4f07-8c9b-6781d53c9e85" style="width:31.25%" class="column"><figure id="a84e9090-fe39-4806-af5a-94d0e26244ca" class="image"><a href="Hello20thon/Untitled%201.png"><img style="width:191px" src="Hello20thon/Untitled%201.png"/></a></figure></div><div id="cbe90e72-ee7f-4c8d-9c7c-615ea0573562" style="width:68.75%" class="column"><p id="2efb6068-8f4a-40c1-ba29-09eb638e621c" class="">데벨업은 여러가지 컨텐츠를 통해 개발을 배우고 프로젝트를 진행할 수 있게 도와주는 온라인 기반 코딩 교육 단체입니다.</p><figure id="9d040497-df15-40d6-a2f8-fffd47dfece0"><div class="bookmark source"><a href="https://www.facebook.com/goormdevelup">DevelUP</a><br/><a class="bookmark-href" href="https://www.facebook.com/goormdevelup">https://www.facebook.com/goormdevelup</a></div></figure></div></div><h2 id="dd473070-bc47-4330-ae62-4cb0c0d06358" class="block-color-gray_background">☁️  구름 소개</h2><hr id="bb837d20-c83e-44e6-9c05-bff683aadfca"/><p id="1739f04a-0d4c-400a-8753-01f103543414" class="">데벨업과 SemiColon은 구름의 전폭적인 지원으로 운영중입니다.</p><p id="ee4ae6fe-abeb-4347-bf23-9244d129d98a" class="">구름은 클라우드 인프라에 대한 깊은 이해와, 웹 애플리케이션 개발에 대한 노하우로 국내를 넘어서 글로벌 서비스를 표방하는 기술 기반 스타트업 입니다.</p><p id="799a2845-0718-45ec-bfbc-928f762dcbe5" class="">우리는 언제 어디서나 SW개발을 배우고, 만들 수 있도록 돕고 모두가 개발자가 될 수 있는 &quot;개발자 성장&quot; 중심의 생태계를 아래의 4가지 서비스를 통해 만들어나가고 있습니다. </p><div id="bf612c6b-1c0a-4866-80b9-eb8f9740d971" class="column-list"><div id="74b407d4-ef6c-4b04-b9ad-3a39d433c5c8" style="width:50%" class="column"><p id="845458ba-dfbb-4d1c-8d40-0abf4ef2ee52" class=""><mark class="highlight-blue"><strong>구름EDU - IT기술 교육 서비스</strong></mark></p></div><div id="70e6dc81-f285-4b6e-9b36-985ef47f2a25" style="width:50%" class="column"><p id="681bd7fc-6765-4fe9-b0cf-d623cc63c847" class=""><mark class="highlight-blue"><strong>구름LEVEL - 프로그래밍 문제 풀이 서비스</strong></mark></p></div></div><div id="38b2fab9-410c-4a88-8431-ceba419792e9" class="column-list"><div id="61f07011-a68a-4e56-a5a6-fe53d9d14596" style="width:50%" class="column"><figure id="5aae70f5-4fcc-49a8-a624-778e495f2730"><div class="bookmark source"><a href="https://edu.goorm.io">구름EDU - Be Really Excellent!</a><br/><a class="bookmark-href" href="https://edu.goorm.io">https://edu.goorm.io</a></div></figure></div><div id="dfedddda-230e-4e13-b515-7f9e32f7b4ac" style="width:50%" class="column"><figure id="264e4020-721b-4665-bfe4-7a0673a28e98"><div class="bookmark source"><a href="https://level.goorm.io">구름LEVEL</a><br/><a class="bookmark-href" href="https://level.goorm.io">https://level.goorm.io</a></div></figure></div></div><div id="19930d8c-29e6-499b-a712-431e5865bdf2" class="column-list"><div id="fdae69f8-3612-45e5-b3ac-5beeea80a73d" style="width:50%" class="column"><p id="2508fdb9-1cf9-44c2-830d-0ffffa8deca1" class=""><mark class="highlight-blue"><strong>구름DEVTH - 개발자 역량 평가 서비스</strong></mark></p></div><div id="8e0d7c2c-28fc-47f4-b86a-4ff7dc27b394" style="width:50%" class="column"><p id="c64a597c-550b-4085-9c07-d4fb8d5a3f2e" class=""><mark class="highlight-blue"><strong>구름IDE - 클라우드 통합 개발 환경 서비스</strong></mark></p></div></div><div id="c0f4555f-65a4-42ba-a01a-480b460bced8" class="column-list"><div id="113eba58-f4ba-43d8-91de-2232443ae461" style="width:50%" class="column"><figure id="1c41278b-9c85-4aca-b001-6a1a67348396"><div class="bookmark source"><a href="https://devth.goorm.io">구름DEVTH - 개발자 채용을 위한 코딩 테스트, 프로그래밍 시험</a><br/><a class="bookmark-href" href="https://devth.goorm.io">https://devth.goorm.io</a></div></figure></div><div id="30682b8c-b85c-4795-9be1-cb5900270102" style="width:50%" class="column"><figure id="a8cdc305-b4e9-469e-887d-e336933b49ac"><div class="bookmark source"><a href="https://ide.goorm.io">구름IDE - 설치가 필요없는 통합개발환경 서비스</a><br/><a class="bookmark-href" href="https://ide.goorm.io">https://ide.goorm.io</a></div></figure></div></div><p id="24717f14-7fb0-4b80-bd7f-635dda0bcd68" class="">
+</p><h2 id="b8396d3e-805f-4223-8768-4414129b9c6f" class="block-color-gray_background">👨‍💻 Hello20thon 개요</h2><hr id="373b4351-56c0-45aa-a983-232e66723ea5"/><p id="4fc1596a-8286-45eb-b552-d56e457dd878" class=""><mark class="highlight-blue"><strong>배경 및 목적</strong></mark></p><p id="c13d7633-af55-4fb6-87ba-6e063dd7974a" class="">Hello20thon은 중,고등학생, 그리고 대학생들의 창의성, 도전성, 그리고 열정을 모토로 짧은 시간 안에 주제에 대한 아이디어를 도출, 프로그래밍을 통해 결과물을 만들어내는 <strong>온라인 해커톤</strong>입니다</p><p id="d82bdbe8-e1db-4297-91cb-c896b38e374b" class="">
+</p><p id="8d5820a0-9157-4050-b351-dbac8910a3db" class="block-color-yellow_background"><strong>해커톤 주제: 1월 25일 공개</strong></p><p id="0415aaf9-ff00-4381-a1f4-e1d91502569f" class="">
+</p><p id="734afa3e-03c1-49e8-b6f3-ebb061459668" class=""><mark class="highlight-blue"><strong>참가 대상</strong></mark></p><ul id="4453ec87-bc92-4c21-9533-76e77ccb4709" class="bulleted-list"><li>해커톤을 해보고 싶은 전국 중학생, 고등학생, 대학생</li></ul><ul id="6f617469-d9a8-4cd9-92b0-c2dbeb449f6d" class="bulleted-list"><li>개인 또는 팀(최대 3명)으로 참가 가능</li></ul><p id="fc73f509-9c6b-4625-9fc1-43034ce7ee5a" class="">
+</p><p id="830e4425-dab1-4f21-a9ed-364eac8a25bc" class=""><mark class="highlight-blue"><strong>주최 및 주관</strong></mark></p><ul id="4a947ed3-1609-4182-93e5-87465bf62f86" class="bulleted-list"><li>주최: goorm</li></ul><ul id="2cbcd4d5-646d-4e85-9d93-125b907df1b7" class="bulleted-list"><li>주관: DevelUP, Semicolon</li></ul><h2 id="be5b2d56-5166-42ca-9434-c4faae5f209c" class="block-color-gray_background">📅 일정</h2><hr id="fc05ad4e-503e-4fa6-b004-f121532231c5"/><ul id="68863881-8cff-43b0-9a48-fecdf9b01ee4" class="bulleted-list"><li>1월 15일 ~ 1월 24일: 모집</li></ul><ul id="03ed14b5-f92b-441c-a3ea-e463a19049b0" class="bulleted-list"><li>1월 25일 ~ 2월 2일: 개발</li></ul><ul id="2ec5f9ef-68c5-4be3-a7d5-cb8a54f4792f" class="bulleted-list"><li>2월 3일 ~ 2월 5일: 컨테이너 갤러리 등록</li></ul><ul id="5fa2cd58-7847-47ea-a2a3-c062b903d67d" class="bulleted-list"><li>2월 6일 ~ 2월 9일: 구름 심사</li></ul><ul id="5b5a0c25-82ca-4789-a6b7-ab0a4da256d7" class="bulleted-list"><li>2월 10일: 결과 발표</li></ul><p id="d2f99de9-bdc4-4e07-a25f-010456a6e136" class="">
+</p><h2 id="be4d9808-532e-46b6-afd7-e797976f711d" class="block-color-gray_background">👍 접수방법 및 가이드</h2><hr id="5070023d-60af-46e6-a2e7-ec8a167e8795"/><p id="02f9e25d-472d-436a-887f-eb280b433605" class=""><strong><mark class="highlight-red">해커톤에 참가하기 전 반드시 읽어보시길 바랍니다.</mark></strong></p><figure id="5bc1c8f3-b3b4-4d61-a284-12e17088e59d" class="link-to-page"><a href="Hello20thon/Hello20thon.html"><span class="icon">📕</span>Hello20thon 가이드</a></figure><p id="9a0046c8-d777-454a-9e76-1c207e451ce6" class="">
+</p><h2 id="c4aaf964-57e0-4b2c-8347-559df9cfa413" class="block-color-gray_background"><mark class="highlight-gray_background">✔️ 심사 기준</mark></h2><hr id="6d7df29d-70bf-44f9-be45-c0659f1690d9"/><div id="34cf5651-17be-48e8-862b-c6b9280fe322" class="collection-content"><h4 class="collection-title">심사 기준</h4><table class="collection-content"><thead><tr><th>Name</th><th>Tags</th><th>Column</th></tr></thead><tbody><tr id="70680bf3-4ac8-4b8a-9003-7060d5710da7"><td class="cell-title"><a href="Hello20thon/Untitled/Untitled.html">완성도</a></td><td class="cell-P_EW"><span class="selected-value">30점</span></td><td class="cell-_q@1">개발의 완성도</td></tr><tr id="1f8d2cb1-3011-4d22-b7df-466f2df46450"><td class="cell-title"><a href="Hello20thon/Untitled/Untitled%201.html">아이디어</a></td><td class="cell-P_EW"><span class="selected-value">30점</span></td><td class="cell-_q@1">문제해결 방안의 독창성과 제안 아이디어의 참신성</td></tr><tr id="2aa7833c-a48a-445c-a5da-165d86a1c6c9"><td class="cell-title"><a href="Hello20thon/Untitled/Untitled%202.html">기술성</a></td><td class="cell-P_EW"><span class="selected-value">30점</span></td><td class="cell-_q@1">문제해결을 위해 어떤 기술을 썼고 서비스의 안전성과 코드 품질 평가</td></tr><tr id="30506bb7-d132-407c-8f47-ed35021a5bee"><td class="cell-title"><a href="Hello20thon/Untitled/Untitled%203.html">컨테이너 스타</a></td><td class="cell-P_EW"><span class="selected-value">10점</span></td><td class="cell-_q@1">컨테이너 스타</td></tr></tbody></table></div><h2 id="9f99ebd0-4dee-41a2-950a-9b6d21e5dbfd" class="block-color-gray_background">👫 학생 개발자/해커톤 참가자 커뮤니티 채널</h2><figure id="5613b5d8-cd18-46e1-8b78-9fdafc89ea80"><div class="bookmark source"><a href="https://discord.gg/pRn3fQx">Join the DevelUP Student Network Discord Server!</a><br/><a class="bookmark-href" href="https://discord.gg/pRn3fQx">https://discord.gg/pRn3fQx</a></div></figure><p id="47ff8fe5-e034-4567-9102-01eea145cc71" class="">
+</p><h2 id="f761f114-ea23-498b-b68f-d55ab573015c" class="block-color-gray_background">📝 참가 신청</h2><hr id="7ee552dd-4b94-449b-9fe4-82fa856c21f1"/><figure id="0fe91299-5ed3-472d-88f8-00e1b4d1b7da"><div class="bookmark source"><a href="https://hello20thon.goorm.io/login">Hello20thon - 로그인</a><br/><a class="bookmark-href" href="https://hello20thon.goorm.io/login">https://hello20thon.goorm.io/login</a></div></figure><p id="bf99bca0-b697-406a-8a6a-15daf3064bdb" class="">
+</p><h2 id="8c3e6a70-af7e-4a68-a231-61722ba45f4c" class="block-color-gray_background">🏅 시상 내역</h2><hr id="5b247350-268a-4348-a27c-13442599209d"/><div id="b372ff5c-9d5b-4539-becc-12ba5cf110e0" class="collection-content"><h4 class="collection-title">시상</h4><table class="collection-content"><thead><tr><th>상명</th><th>수상팀</th><th>상금</th></tr></thead><tbody><tr id="b9bf116e-2a55-4a5c-be78-85471ed958ad"><td class="cell-title"><a href="Hello20thon/Untitled%201/Untitled.html">최우수상</a></td><td class="cell-!#au">1팀</td><td class="cell-Y4Pj">상장 + 60만원 + Premium 3 개월 </td></tr><tr id="5fc7d2c6-844a-4574-bcf5-d5a570028f32"><td class="cell-title"><a href="Hello20thon/Untitled%201/Untitled%201.html">우수상</a></td><td class="cell-!#au">2팀</td><td class="cell-Y4Pj">상장 + 30만원 + Premium 2 개월 </td></tr><tr id="cb81ca42-7a44-4ac2-9b8a-8196cb66dcf2"><td class="cell-title"><a href="Hello20thon/Untitled%201/Untitled%202.html">장려상</a></td><td class="cell-!#au">4팀</td><td class="cell-Y4Pj">상장 + 10만원 + Premium 1 개월 </td></tr></tbody></table></div><h2 id="0c60563b-b62b-482c-9cac-169f062555c3" class="block-color-gray_background">☎️ 문의 사항</h2><hr id="81da338f-17b9-4935-8cd0-ae32b6e785da"/><p id="a3015c3e-910c-47ec-ac5a-145472d044b3" class="">문의 사항 있으시면 <strong>dongheon.kang@goorm.io</strong> 으로 문의 주시면 감사하겠습니다.</p><p id="952ac54e-d7d9-483a-807d-eb2c4a25b1d9" class="">
+</p><p id="2cfdc7dd-f029-4b14-9bc2-6108611fe151" class="">
+</p></div></article></body></html>

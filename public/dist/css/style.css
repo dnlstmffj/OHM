@@ -1,0 +1,52 @@
+/*.cursors span{
+	display: inline-block;
+	margin: 5px;
+	padding: 5px 10px;
+	background-color: #d2f4ff;
+	border: 2px solid #09c;
+}
+
+
+html, body, div {
+  cursor:url('cursor/normal.cur'), auto;
+}
+
+.icon, button, a, .btn, .secur, .fc-button, .fc-button-primary{
+  cursor:url('cursor/link.cur'), auto;
+}
+
+label, text, input, text, h1, h2, h3, h4 ,h5, b {
+  cursor:url('cursor/txt.cur'), auto;
+}
+*/
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4a62ff;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0324ff;
+}
+
+@keyframes rainbow {
+	0%{	color:#FF0000; }
+	20%{	color:#FF7F00; }
+	40%{	color:#FF0000; }
+	60%{	color:#00FF00; }
+	80%{	color:#0000FF; }
+}
+
+.admincolor{
+	color: purple;
+	animation: rainbow 5s alternate infinite;
+}

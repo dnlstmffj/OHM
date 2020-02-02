@@ -1,0 +1,212 @@
+<div class="container-fluid">
+  <!-- general form elements disabled -->
+  <div class="card card-warning">
+    <div class="card-header">
+      <h3 class="card-title">팀에 소속됨 - <%=team_data[0].name%>(<%=team_data[0].team_id%>, <%=team_data[0].id%>)</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <form role="form">
+        <div class="form-group">
+          <label>팀명</label>
+          <br><%=team_data[0].name%>
+        </div>
+        <div class="form-group">
+          <label>팀 ID</label>
+          <br><%=team_data[0].team_id%>
+        </div>
+        <div class="row">
+          <div class="col-sm-8">
+            <label>팀원</label>
+            <table class="table table-bordered">
+              <thead>                  
+                <tr>
+                  <th>#</th>
+                  <th>이름</th>
+                  <th>학교명</th>
+                  <th>디스코드</th>
+                  <% if(team_data[0].leader == user[0].id) {%>
+                    <th>관리</th>
+                  <% } %>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(i=0; i<party_data.length; i++) {%>
+                <tr>
+                  <% if(team_data[0].leader == party_data[i].id) {%>
+                    <td>리더</td>
+                  <% } else {%>
+                  <td>팀원</td>
+                  <% }%>
+                  <td><%=party_data[i].name%></td>
+                  <td><%=party_data[i].school%></td>
+                  <td><%=party_data[i].discord%></td>
+                  <% if(team_data[0].leader == user[0].id) {%>
+                    <th><button onClick="exitTeam(<%=party_data[i].id%>)" type="button" class="btn btn-block btn-danger btn-sm">삭제</button></th>
+                  <% } %>
+                </tr>
+                <% }%>
+              </tbody>
+            </table>
+          </div>
+          
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="card card-secondary">
+    <div class="card-header">
+      <h3 class="card-title">프로젝트 계획서 (공백 포함 1000자 이내로 작성하여 주십시오)</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <form role="form">
+        <div class="row">
+          <div class="col-sm-8">
+            <!-- text input -->
+            <div class="form-group">
+              <label>프로젝트 이름</label>
+              <input onkeyup="keyup(0)" id="name" type="text" class="form-control" placeholder="프로젝트 명을 입력하세요." value="<%=team_data[0].prj_name%>">
+            </div>
+            <div class="form-group">
+              <label>프로젝트 주제 (한줄소개)</label>
+              <input onkeyup="keyup(1)" id="about" type="text" class="form-control" placeholder="프로젝트 주제를 입력하세요." value="<%=team_data[0].prj_about%>">
+            </div>
+            <div class="form-group">
+              <label>사용하는 기술 스택</label> - 여러개일시 콤마(,)로 구분
+              <input onkeyup="keyup(2)" id="stack" type="text" class="form-control" placeholder="기술 스택을 입력하세요." value="<%=team_data[0].prj_stack%>">
+            </div>
+            <div class="form-group">
+              <label>제안 배경 (문제상황)</label>
+              <textarea onkeyup="keyup(0)" id="problem" rows="5" class="form-control"><%=team_data[0].prj_problem%></textarea>
+            </div>
+            <div class="form-group">
+              <label>제안 서비스 설명 (해결방안)</label>
+              <textarea onkeyup="keyup(1)" id="solve" rows="5" class="form-control"/><%=team_data[0].prj_solve%></textarea>
+            </div>
+            <div class="form-group">
+              <label>팀원 역할분담 계획</label>
+              <textarea onkeyup="keyup(2)" id="role" rows="3" class="form-control"/><%=team_data[0].prj_role%></textarea>
+            </div>
+            <div class="form-group">
+              <label>프로젝트 진행 일정</label>
+              <textarea onkeyup="keyup(3)" id="plan" rows="3" class="form-control"/><%=team_data[0].prj_plan%></textarea>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /.card-body -->
+  <%if(team_data[0].leader == user[0].id) {%>
+    <div class="card-footer">
+      <button onClick="submit()" class="btn btn-primary">저장하기</button>
+    </div>
+  <%}%>
+  </div>
+
+  <div class="card card-primary" style="display:none;">
+    <div class="card-header">
+      <h3 class="card-title">프로젝트 완료 보고서</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <form role="form">
+         <h5><b>작성전에 꼭 <a href="#">완료 보고서 작성 매뉴얼</a>을 정독하신 후에 입력해주세요.</b><br><br></h5>
+        <div class="row">
+          <div class="col-sm-8">
+            <!-- text input -->
+            <div class="form-group">
+              <label>프로젝트 컨테이너</label> - 구름IDE 컨테이너 공유 주소
+              <input id="curl" type="url" class="form-control" placeholder="컨테이너 공유링크를 입력하세요." value="<%=team_data[0].container_url%>">
+            </div>
+            <div class="form-group">
+              <label>사용한 기술 스택</label> - 여러개일시 콤마(,)로 구분
+              <input id="cstack" type="text" class="form-control" placeholder="기술 스택을 입력하세요." value="<%=team_data[0].comp_lang%>">
+            </div>
+            <div class="form-group">
+              <label>프로젝트 설명</label> - 제작한 프로젝트 사용방법 및 기능 설명
+              <textarea id="cabout" rows="5" class="form-control"/><%=team_data[0].comp_about%></textarea>
+            </div>
+            <div class="form-group">
+              <label>기술적 소개</label> - 기술적 측면(최적화, 비 레거시 스택 등)에서 프로젝트의 장점
+              <textarea id="ctech" rows="5" class="form-control"><%=team_data[0].comp_tech%></textarea>
+            </div>
+            <div class="form-group">
+              <label>프로젝트 진행 과정</label> - 프로젝트 개발 기간동안의 개발 과정
+              <textarea id="cplan" rows="5" class="form-control"><%=team_data[0].comp_plan%></textarea>
+            </div>
+            <div class="form-group">
+              <label>Github / BitBucket 리포지토리 링크</label> - 심사시 참고자료로 활용
+              <input id="cgithub" type="url" class="form-control" placeholder="리포지토리 링크를 입력하세요." value="<%=team_data[0].comp_github%>">
+            </div>
+            <div class="form-group">
+              <label>프로젝트 실행 명령 이름</label> - 구름IDE 컨테이너내 실행명령 이름
+              <input id="ccommand" type="text" class="form-control" placeholder="프로젝트 실행 명령 이름을 입력하세요." value="<%=team_data[0].comp_command%>">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /.card-body -->
+  <%if(team_data[0].leader == user[0].id) {%>
+    <div class="card-footer">
+      <button onClick="submit_comp()" class="btn btn-primary">저장하기</button>
+    </div>
+  <%}%>
+  </div>
+  <div class="card card-primary" style="display:none;">
+    <div class="card-header">
+      <h3 class="card-title">구름 IDE 컨테이너 정보 (URL만 입력하여 주십시오)</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <form role="form">
+        심사에 반영될 컨테이너의 공유링크를 입력해주세요.
+        <div class="row">
+          <div class="col-sm-8">
+            <!-- text input -->
+            
+            <div class="form-group">
+              <label>컨테이너 공유 링크 1</label>
+              <input id="url1" type="url" class="form-control" placeholder="URL을 입력하세요." value="<%=team_data[0].container_url1%>">
+            </div>
+            <div class="form-group">
+              <label>컨테이너 공유 링크 2</label>
+              <input id="url2" type="url" class="form-control" placeholder="URL을 입력하세요." value="<%=team_data[0].container_url2%>">
+            </div>
+            <div class="form-group">
+              <label>컨테이너 공유 링크 3</label>
+              <input id="url3" type="url" class="form-control" placeholder="URL을 입력하세요." value="<%=team_data[0].container_url3%>">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+      <button onClick="submit_url()" class="btn btn-primary">저장하기</button>
+    </div>
+  </div>
+  <!-- /.card -->
+</div>  
+  
+<script>
+	/*url 검사*/
+	function checkUrlForm(strUrl) {
+		var expUrl = /^http[s]?\:\/\//i;
+		if(expUrl.test(strUrl) = "False"){
+			alert("url 형식이 잘못되었습니다. 컨테이너 url을 다시 입력해 주십시오.")
+		}
+	}
+</script>
+
+<script>
+	/*keyup()함수로 글자수 제한*/
+	function keyup(num)
+	{
+		if(document.getElementsByTagName("input")[num].value.length >= 1000 || document.getElementsByTagName("textarea")[num].value.length >= 1000)
+		{
+			alert("1000글자 이내로 작성하여 주십시오.");
+		}
+	}
+</script>

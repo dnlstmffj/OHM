@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="card card-warning">
+    <div class="card-header">
+      <h3 class="card-title">All Teams</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="table_teams" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>TeamID</th>
+          <th>Name</th>
+          <th>Leader</th>
+          <th>ProjectName</th>
+          <th>Manage</th>
+        </tr>
+        </thead>
+        <tbody>
+          <% for(i=0; i<teams.length; i++) { %>
+            <tr>
+              <td><%=teams[i].id%></td>
+              <td><%=teams[i].team_id%></td>
+              <td><%=teams[i].name%></td>
+              <% if(teams[i].leader) {%>
+                <td><%=membersI[teams[i].leader].name%></td>
+              <% } else { %>
+                <td>-</td>
+              <% } %>
+              <td><%=teams[i].prj_name%></td>
+              <td><button onClick="getTeam(<%=teams[i].id%>)" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editTeamModal">Edit</button>&nbsp;&nbsp;<button onClick="viewTeam(<%=teams[i].id%>)" type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#viewTeamModal">View</button>&nbsp;&nbsp;<button type="button" onClick="deleteTeam(<%=teams[i].id%>)" class="btn btn-danger btn-sm">Delete</button></td>
+            </tr>
+          <% } %>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <!-- /.card -->
+</div>
+<script>
+  $(function () {
+    $("#table_teams").DataTable();
+  });
+</script>
+

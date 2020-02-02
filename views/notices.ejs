@@ -1,0 +1,23 @@
+<div class="card card-warning">
+  <div class="card-header">
+    <h3 class="card-title">전체 공지사항</h3>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <% for(j=notices.length-1; j>=0; j--) { %>
+      <div class="card collapsed-card">
+        <a href="#" data-card-widget="collapse">
+          <div class="card-header">
+            <h3 class="card-title"><%=notices[j].title%> - <%=notices[j].date%></h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool"><i class="fas fa-plus"></i></button>
+            </div>
+          </div>
+        </a>
+        <div class="card-body">
+          <%-notices[j].content%>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</div>

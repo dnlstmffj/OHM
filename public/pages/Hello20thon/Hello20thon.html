@@ -1,0 +1,572 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Hello20thon 가이드</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	opacity: 0.5;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
+.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5bc1c8f3-b3b4-4d61-a284-12e17088e59d" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/solid_yellow.png" style="object-position:center 40%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📕</span></div><h1 class="page-title">Hello20thon 가이드</h1></header><div class="page-body"><h2 id="41be0a15-f596-4e6f-9ae6-9385e6305bca" class=""><em><strong>접수방법</strong></em><strong> (개인, 팀, 팀원)</strong></h2><ul id="d24774dc-1050-4abd-bb5e-7c262ab748d7" class="toggle"><li><details open=""><summary><mark class="highlight-blue"><strong>개인</strong></mark></summary><ol id="76780103-8efc-43d9-aa4b-39513a06f2b9" class="numbered-list" start="1"><li>해커톤 사이트 접속 (<a href="https://hello20thon.goorm.io">https://hello20thon.goorm.io</a>)</li></ol><ol id="386dfe76-a22c-419c-a122-e77f0180d698" class="numbered-list" start="2"><li>참가신청</li></ol><ol id="301d9f31-1a17-4a3c-8a25-1b19b87e8708" class="numbered-list" start="3"><li>로그인</li></ol><ol id="3d3cf642-2b2f-44c2-a5e1-2c2387b075c5" class="numbered-list" start="4"><li>사이트 메뉴에서 해커톤 클릭</li></ol><ol id="d90fa97b-137a-4178-9201-360548c56b29" class="numbered-list" start="5"><li>팀 생성 폼에 팀명과 원하는 팀 아이디(영문 소문자 및 숫자) 입력</li></ol><ol id="07f22b0b-485b-4c7b-8d20-e78d25126bf7" class="numbered-list" start="6"><li>기획서 작성</li></ol><ol id="2fb730d1-3905-4847-9057-d868fb6ba8d8" class="numbered-list" start="7"><li>디스코드 커뮤니티 가입 (사이트 메뉴에 디스코드 배너)</li></ol><ol id="70fc9ada-dd24-4ba4-81f7-0fdb427bf1e9" class="numbered-list" start="8"><li>구름IDE를 통해 개발</li></ol><ol id="35d26578-4b20-4c52-8a6e-b13e34a432bf" class="numbered-list" start="9"><li>개발 후 완성 보고서 작성 (보고서 작성기간에 사이트에 입력 가능한 필드가 추가되고 참가자 들에게 이메일이 발송됩니다.)</li></ol><ol id="e192f037-d236-4a20-a29c-323665297c6d" class="numbered-list" start="10"><li>컨테이너 url 제출</li></ol><p id="63580f66-e179-4246-a2b2-b52af1e01ab3" class="">
+</p></details></li></ul><ul id="bbcc54b1-c576-4f65-86a3-2727d4b6f52b" class="toggle"><li><details open=""><summary><mark class="highlight-blue"><strong>팀</strong></mark></summary><ol id="3c246178-aa59-4945-b149-6829e7dd8d36" class="numbered-list" start="1"><li>해커톤 사이트 접속 (<a href="https://hello20thon.goorm.io">https://hello20thon.goorm.io</a>)</li></ol><ol id="c2894b03-b417-43b2-be9e-7f6a9a0aa093" class="numbered-list" start="2"><li>참가신청</li></ol><ol id="73de1795-9c51-4ad1-b1b0-90b7db230c05" class="numbered-list" start="3"><li>로그인</li></ol><ol id="5301f537-5a1c-493f-9555-955192785e6c" class="numbered-list" start="4"><li>사이트 메뉴에서 해커톤 클릭</li></ol><ol id="3c1fc78f-6d11-49f3-8fcc-62425c2f66fb" class="numbered-list" start="5"><li>팀 생성 폼에 팀명과 원하는 아이디 입력</li></ol><ol id="ae8f6612-e11d-4324-9341-00e54e4e46ed" class="numbered-list" start="6"><li>기획서 작성</li></ol><ol id="ec998337-b03e-4539-9341-9a63ed95f638" class="numbered-list" start="7"><li>디스코드 사이트 접속, 원한다면 팀원 모집 (사이트 메뉴에 디스코드 배너)</li></ol><ol id="3fddbd0e-a395-427b-ba72-0b006decc102" class="numbered-list" start="8"><li>팀원들에게 <strong>팀 아이디 공유</strong></li></ol><ol id="c7ff41d5-eb23-4212-b935-6bfb31c3fb25" class="numbered-list" start="9"><li>구름IDE를 통해 개발</li></ol><ol id="034fcef9-08b3-4f27-a690-05f4a6ed3363" class="numbered-list" start="10"><li>개발 후 완성 보고서 작성 (보고서 작성기간에 사이트에 입력 가능한 필드가 추가되고 참가자 들에게 이메일이 발송됩니다.)</li></ol><ol id="e371195e-81ee-450c-ac11-6111b4d9bcae" class="numbered-list" start="11"><li>컨테이너 url 제출</li></ol><p id="12dcfeb6-a296-455f-9e7d-4c9c1bdfdf1a" class="">
+</p></details></li></ul><ul id="5bfb6be9-088d-41b7-85e9-b814b8e8df4e" class="toggle"><li><details open=""><summary><strong><mark class="highlight-blue">팀원</mark></strong></summary><ol id="57188497-e441-4565-b733-5f9d72a8eb66" class="numbered-list" start="1"><li>해커톤 사이트 접속 (<a href="https://hello20thon.goorm.io">https://hello20thon.goorm.io</a>)</li></ol><ol id="8775086d-b482-42df-86a3-b91c0a4be0c6" class="numbered-list" start="2"><li>참가신청</li></ol><ol id="eabb4700-fbf4-4b1a-aaa1-2551a467e655" class="numbered-list" start="3"><li>로그인</li></ol><ol id="25514faa-7537-45d1-9de0-48ab6480cbd9" class="numbered-list" start="4"><li>사이트 메뉴에서 해커톤 클릭</li></ol><ol id="0a9a36da-741e-490d-9f8b-71936a341528" class="numbered-list" start="5"><li>팀 초대 수락란에 팀 아이디 입력</li></ol><ol id="320726f7-988b-4b30-861e-dc24d0983070" class="numbered-list" start="6"><li>디스코드 사이트 접속 (사이트 메뉴에 디스코드 배너)</li></ol><ol id="7326d644-baf0-4848-8daa-f69e4409ce3e" class="numbered-list" start="7"><li>개발</li></ol></details></li></ul><p id="1fbd7814-c16f-4d03-a53c-4cd81617874a" class="">
+</p><p id="7d6ffeea-0b2e-4f77-948f-7d45f4fc8e92" class=""><strong>컨테이터 세팅 방법</strong></p><ol id="2a1d3bdf-f6af-4fcf-88ad-fafe786795e1" class="numbered-list" start="1"><li>메인 화면에서 새 컨테이너 생성 버튼 클릭</li></ol><ol id="559494c3-97f1-487a-bd1b-24918a25cf18" class="numbered-list" start="2"><li>이름과 설명 작성</li></ol><ol id="0c97966f-96e8-4143-b1ee-2df95fc45ce6" class="numbered-list" start="3"><li>지역: 서울 리전 (AWS)</li></ol><ol id="d1d68160-6b14-422f-85f9-376806882e61" class="numbered-list" start="4"><li>공개 범위: Public</li></ol><ol id="561220fd-636d-4164-a342-b81b7b3ac987" class="numbered-list" start="5"><li>나머지 템플릿, 배포, 소프트웨어 스택, 추가 모듈/페키지는 알아서 선택</li></ol><ol id="133c3012-ce30-47ee-9e71-df2a8e30d873" class="numbered-list" start="6"><li>위에 생성 버튼 클릭</li></ol><p id="a42c0aca-1db6-4daf-bf6e-26db7f8aa51a" class="">
+</p><p id="4ab6a102-7b60-4cb7-894c-b909cc714644" class=""><strong>컨테이너 공유 방법</strong></p><ol id="3dc39dc7-c998-4a7b-a7a1-6a39d01be347" class="numbered-list" start="1"><li>대시보드에 공유 할 컨테이너 메뉴에 <strong>톱니바퀴 버튼</strong> 클릭</li></ol><ol id="50642db5-4720-49aa-8ef6-3c22525d402b" class="numbered-list" start="2"><li>컨테이너 설정 메뉴에서 <strong>공개 범위를 Public으로 세팅</strong></li></ol><ol id="9c9e233a-31a3-44d0-a8be-aa5146fb8f25" class="numbered-list" start="3"><li>공유 메뉴에서 <strong>링크 초대 on</strong></li></ol><ol id="33bfc027-7c5d-4834-a0e3-0a44c5966162" class="numbered-list" start="4"><li><strong>워크스페이스 공유 주소 </strong>다른 팀원들에게 공유</li></ol><p id="1e2f667b-a0a7-40b7-bc24-d7af5703c218" class="">
+</p><p id="dab2c4a2-7f6c-420c-912d-afb2103c9737" class=""><strong>컨테이너 제출 방법</strong></p><ol id="74c66d00-9533-49dd-ac1e-c79865b6f06a" class="numbered-list" start="1"><li>대시보드에 공유 할 컨테이너 메뉴에 <strong>톱니바퀴 버튼</strong> 클릭</li></ol><ol id="939a9e5c-99c9-42ac-964a-5cb776e8e43d" class="numbered-list" start="2"><li>컨테이너 설정 메뉴에서 <strong>공개 범위를 Public으로 세팅</strong></li></ol><ol id="d799f98d-077c-4bc7-9d11-5ab7c3ad3bb8" class="numbered-list" start="3"><li>공유 메뉴에서 <strong>링크 초대 on</strong></li></ol><ol id="ee2f1d64-ae8e-4d32-a008-7fc83e826480" class="numbered-list" start="4"><li>초대 시 권한 <strong>수정 가능 (root)</strong>로 세팅</li></ol><ol id="104e5ad0-f94d-4504-bcc9-79c9daa7aa71" class="numbered-list" start="5"><li><strong>워크스페이스 공유 주소 복사</strong></li></ol><ol id="9f2a7890-44aa-49ef-80a2-e419aae57e06" class="numbered-list" start="6"><li>해커톤 사이트에 접속</li></ol><ol id="a9e2888b-a6a0-4205-9838-6010f86f8340" class="numbered-list" start="7"><li>개발 후 완성 보고서 작성 (보고서 작성기간에 사이트에 입력 가능한 필드가 추가되고 참가자 들에게 이메일이 발송됩니다.)</li></ol><ol id="9b99ca81-bfe0-4063-ad45-689ba81a62c6" class="numbered-list" start="8"><li>URL 제출 폼에 URL 제출</li></ol><p id="0e344e80-ca3a-4176-8eb7-290d783edc2c" class=""><mark class="highlight-red"><strong>세팅을 위와 같은 방법으로 해야 심사원들의 심사가 가능하다는 점 유의 바랍니다.</strong></mark></p><p id="079e4a53-269e-45e1-ae7f-b2bef3b39520" class="">
+</p><p id="4e5194fe-df96-41dc-9dd5-ed8a79c30d93" class=""><strong>팀원간 커뮤니케이션 방법</strong></p><p id="6da7d533-e05d-45f5-b458-e4e1b23bc808" class="">슬랙 등에서 자유롭게 채널을 생성하여 사용해도 되지만 운영팀은 원활한 진행을 위해 SemiColon 디스코드 커뮤니티에 채널을 개설요청하여 작업하는 것을 권장합니다.</p><p id="6b089cba-ecfb-49ab-aff8-35321c2d91b7" class="">
+</p></div></article></body></html>

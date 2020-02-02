@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="card card-warning">
+    <div class="card-header">
+      <h3 class="card-title">All Notices</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="table_support" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>CaseID</th>
+          <th>Service</th>
+          <th>Contact</th>
+					<th>Problem</th>
+          <th>Discord</th>
+          <th>Phone</th>
+          <th>KakaoTalk</th>
+          <th>Email</th>
+          <th>Memo</th>
+          <th>Manage</th>
+        </tr>
+        </thead>
+        <tbody>
+          <% for(j=supports.length-1; j>=0; j--) { %>
+            <tr>
+              <td><%=supports[j].id%></td>
+              <td><%=supports[j].service%></td>
+							<td><%=supports[j].contact%></td>
+              <td><%=supports[j].problem%></td>
+              <td><%=supports[j].discord%></td>
+              <td><%=supports[j].phone%></td>
+              <td><%=supports[j].kakaotalk%></td>
+              <td><%=supports[j].email%></td>
+              <td><%=supports[j].memo%></td>
+              <td><button type="button" onClick="editMemo(<%=supports[j].id%>)" class="btn btn-primary btn-sm">Memo</button></td>
+            </tr>
+          <% } %>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  
+  <!-- /.card -->
+</div>
+<script>
+  $(function () {
+    $("#table_support").DataTable();
+  });
+</script>
+
+

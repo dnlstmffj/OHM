@@ -1,0 +1,128 @@
+<div class="card card-success">
+  <div class="card-header">
+		<h3 class="card-title">심사 결과 - 고등부</h3>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">			
+		<% if (no==0) { %>
+		<% for(j=0; j<resultm.length; j++) { %>
+      <div class="card-body">
+				<div class="card card-widget widget-user-2">
+					<div class="ribbon-wrapper ribbon-lg">
+						<div class="ribbon bg-success text-lg">
+							<% if (resultm[j].rank==1) { %>
+							최우수상
+							<% } %>
+							<% if (resultm[j].rank==2) { %>
+							우수상
+							<% } %>
+						</div>
+					</div>
+					<!-- Add the bg color to the header using any of the bg-* classes -->
+					<div class="widget-user-header bg-warning">
+						<!-- /.widget-user-image -->
+						<% if (j==0) { %>
+						<h3 class="">팀명:<%=ateaminfo[0].name %></h3>
+						<h5 class="">프로젝트 이름:<%=ateaminfo[0].prj_name %></h5>
+						<h5 class="">프로젝트 주제:<%=ateaminfo[0].prj_about %></h5>
+						<% } %>
+						<% if (j==1) { %>
+						<h3 class="">팀명:<%=bteaminfo[0].name %></h3>
+						<h5 class="">프로젝트 이름:<%=bteaminfo[0].prj_name %></h5>
+						<h5 class="">프로젝트 주제:<%=bteaminfo[0].prj_about %></h5>
+						<% } %>
+						<% if (j==2) { %>
+						<h3 class="">팀명:<%=cteaminfo[0].name %></h3>
+						<h5 class="">프로젝트 이름:<%=cteaminfo[0].prj_name %></h5>
+						<h5 class="">프로젝트 주제:<%=cteaminfo[0].prj_about %></h5>
+						<% } %>
+					</div>
+					<div class="card-footer p-0">
+						<table class="table table-bordered" style='text-align:center;'>
+							<thead>
+								<tr>
+									<th width=100>리더</th>
+									<th width=100>맴버1</th>
+									<th width=100>맴버2</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<% if (j==0) { %>
+									<% for(i=0; i<amembers.length; i++) { %>
+									<% if (amembers[i].id==ateaminfo[0].leader) { %>
+									<td><%=amembers[i].name %></td>
+									<% } else { %>
+									<td><%=amembers[i].name %></td>
+									<% } %>
+									<% } %>
+									<% } %>
+									<% if (j==1) { %>
+									<% for(i=0; i<bmembers.length; i++) { %>
+									<% if (bmembers[i].id==bteaminfo[0].leader) { %>
+									<td><%=bmembers[i].name %></td>
+									<% } else { %>
+									<td><%=bmembers[i].name %></td>
+									<% } %>
+									<% } %>
+									<% } %>
+									<% if (j==2) { %>
+									<% for(i=0; i<cmembers.length; i++) { %>
+									<% if (cmembers[i].id==cteaminfo[0].leader) { %>
+									<td><%=cmembers[i].name %></td>
+									<% } else { %>
+									<td><%=cmembers[i].name %></td>
+									<% } %>
+									<% } %>
+									<% } %>
+								</tr>
+							</tbody>
+						</table>
+						<div class="card card-primary collapsed-card">
+							<a href="#">
+								<div class="card-header secur" data-card-widget="collapse">
+									<h3 class="card-title">프로젝트 자세히 보기</h3>
+								</div>
+							</a>
+							<div class="card-body" style="display: none;">
+								<div class="info-box">
+									<span class="info-box-icon"><i class="fas fa-exclamation-triangle"></i></span>
+									<div class="info-box-content">
+										<span class="info-box-text">제안 배경(문제상황)</span>
+										<% if (j==0) { %>
+										<h5 class=""><%=ateaminfo[0].prj_problem %></h5>
+										<% } %>
+										<% if (j==1) { %>
+										<h5 class=""><%=bteaminfo[0].prj_problem %></h5>
+										<% } %>
+										<% if (j==2) { %>
+										<h5 class=""><%=cteaminfo[0].prj_problem %></h5>
+										<% } %>
+									</div>
+								</div>
+								<div class="info-box">
+									<span class="info-box-icon"><i class="fas fa-check-square"></i></span>
+									<div class="info-box-content">
+										<span class="info-box-text">제안 서비스(해결방안)</span>
+										<% if (j==0) { %>
+										<h5 class=""><%=ateaminfo[0].prj_solve %></h5>
+										<% } %>
+										<% if (j==1) { %>
+										<h5 class=""><%=bteaminfo[0].prj_solve %></h5>
+										<% } %>
+										<% if (j==2) { %>
+										<h5 class=""><%=cteaminfo[0].prj_solve %></h5>
+										<% } %>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+      </div>
+		<% } %>
+		<% } else { %>
+		값이 없습니다.
+		<% } %>
+  </div>
+</div>

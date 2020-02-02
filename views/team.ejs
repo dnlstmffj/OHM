@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <!-- general form elements disabled -->
+  <div class="card card-warning">
+    <div class="card-header">
+      <h3 class="card-title">팀 초대 수락</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <form role="form">
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- text input -->
+            <div class="form-group">
+              <label>팀 ID</label>
+              <input id="teamid2" type="text" class="form-control" placeholder="Team ID를 입력하세요.">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+      <button onClick="joinTeam()" class="btn btn-primary">팀 가입</button>
+    </div>
+  </div>
+  <!-- /.card -->
+  <!-- general form elements disabled -->
+  <div class="card card-secondary">
+    <div class="card-header">
+      <h3 class="card-title">새로운 팀 생성</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <form role="form">
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- text input -->
+            <div class="form-group">
+              <label>팀명</label>
+              <input id="name" type="text" class="form-control" placeholder="팀명을 입력하세요.">
+            </div>
+            <div class="form-group">
+              <label>팀 ID</label> - 팀 ID는 영문과 숫자만 허용되며 고유해야합니다.
+              <input id="teamid" type="text" class="form-control" placeholder="팀 ID을 입력하세요.">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+      <button onClick="addTeam()" class="btn btn-primary">팀 생성</button>&nbsp;&nbsp;
+    </div>
+  </div>
+  <!-- /.card -->
+</div>

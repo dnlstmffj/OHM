@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  
+  <!-- general form elements disabled -->
+  <div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">All Members</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="table_members" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Grade</th>
+          <th>School</th>
+          <th>Phone</th>
+          <th>Team</th>
+          <th>Manage</th>
+        </tr>
+        </thead>
+        <tbody>
+          <% for(i=0; i<members.length; i++) { %>
+            <tr>
+              <td><%=members[i].id%></td>
+              <td><%=members[i].name%></td>
+              <td><%=members[i].email%></td>
+              <td><%=gradeInfo[members[i].grade]%></td>
+              <td><%=members[i].school%></td>
+              <td><%=members[i].phone%></td>
+              <% if(members[i].team) {%>
+              <td><%=teamsI[members[i].team].name%>(<%=teamsI[members[i].team].team_id%>)</td>
+              <%} else {%>
+              <td>-</td>
+              <%}%>
+              <td><button onClick="getMember(<%=members[i].id%>)" data-toggle="modal" data-target="#editMemberModal" type="button" class="btn btn-primary btn-sm">Edit</button>&nbsp;&nbsp;<button onClick="deleteAlert()" type="button" class="btn btn-danger btn-sm">Delete</button></td>
+            </tr>
+          <% } %>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <!-- /.card -->
+</div>
+<script>
+  $(function () {
+    $("#table_members").DataTable();
+    $("#table_teams").DataTable();
+  });
+</script>
+
+<!-- Modal -->
+
